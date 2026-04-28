@@ -1,5 +1,11 @@
 //Grupo A: Ana Moser, David Yuri, Fabiano Batista e Joaquim Henrique
 TRABALHO – 1º BIMESTRE
+O aluno deverá desenvolver um app que contenha:
+ 1. Tela principal com:
+Nome do aluno
+Curso (Informática)
+Uma frase motivacional
+
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 
