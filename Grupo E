@@ -1,4 +1,5 @@
 Alunos: Ed, Davi, Rian e Ralisson
+trabalho 1° bim
 import React, { useState } from 'react';
 import {
   View,
@@ -129,4 +130,37 @@ const styles = StyleSheet.create({
     color: 'blue',
     textAlign: 'center'
   }
+});
+
+Aluno Ed: Atv Primeira Tela
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      
+      {/* 1. Texto */}
+      <Text style={styles.texto}>Bem-vindo!</Text>
+
+      {/* 2. Botão */}
+      <Button 
+        title="Entrar" 
+        onPress={() => alert('Botão pressionado!')} 
+      />
+
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  texto: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
 });
