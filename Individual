@@ -6,7 +6,10 @@ PROFESSOR: Ranyere Lima
 ALUNO(A): Ana Moser M. de Oliveira
 DATA:  28/ 04 /2026
 Bimestre: 2º Bimestre
-Descrição da Atividade: 
+Descrição da Atividade: Nesta atividade foi desenvolvido um aplicativo simples utilizando React Native, com o objetivo de compreender a estrutura básica de um app mobile.
+O aplicativo apresenta uma tela inicial com uma mensagem de boas-vindas e um botão interativo que, ao ser pressionado, exibe um alerta na tela.
+Também foram aplicados conceitos de estilização com StyleSheet, permitindo a personalização de cores e textos.
+A atividade contribuiu para o aprendizado dos principais componentes, como View, Text, Button e Alert, além de reforçar a lógica de programação.
 
 **********************************************************************/
 Prática: Sua Primeira Tela
@@ -96,7 +99,10 @@ PROFESSOR: Ranyere Lima
 ALUNO(A): David yuri da Cruz
 DATA:  28/ 04 /2026
 Bimestre: 2º Bimestre
-Descrição da Atividade: 
+Descrição da Atividade: Nesta atividade foi desenvolvido um aplicativo simples utilizando React Native, com o objetivo de compreender a estrutura básica de um app mobile.
+O aplicativo apresenta uma tela inicial com uma mensagem de boas-vindas e um botão interativo que, ao ser pressionado, exibe um alerta na tela.
+Também foram aplicados conceitos de estilização com StyleSheet, permitindo a personalização de cores e textos.
+A atividade contribuiu para o aprendizado dos principais componentes, como View, Text, Button e Alert, além de reforçar a lógica de programação.
 
 **********************************************************************/
 import React from 'react';
