@@ -1,5 +1,5 @@
 //Grupo B: Bruno, julio, Yuri e Cauã
-
+//1/ Bimestre
 import React, { useState } from &#39;react&#39;;
 import {
   View,
