@@ -192,7 +192,7 @@ export default function App() {
       <StatusBar barStyle="light-content" backgroundColor="#0F172A" />
 
       {/* Título */}
-      <Text style={styles.title}>Olá, aluno! 👋</Text>
+      <Text style={styles.title}>Seja bem-vindo, aluno! </Text>
 
       {/* Subtítulo */}
       <Text style={styles.subtitle}>
