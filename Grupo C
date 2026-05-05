@@ -131,3 +131,57 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+
+// Grupo C: Alunos: Jasmin,Luana, Laura e Walter
+
+// Descrição:Este é um aplicativo básico em React Native que exibe uma mensagem de boas-vindas centralizada em uma tela de fundo verde-água. Ele utiliza o hook useState para gerenciar o estado da mensagem. Inicialmente, exibe "Bem-vindo ao app!". Quando o usuário pressiona o botão "Entrar", a função entrar é chamada, atualizando o estado e alterando a mensagem para "Bem-vindo aluno!".
+
+// Importa o React e o hook useState para gerenciar o estado do componente
+import React, { useState } from 'react';
+// Importa os componentes necessários do react-native
+import { StyleSheet, Text, View, Button } from 'react-native';
+
+// Define o componente funcional principal App
+export default function App() {
+  // Define o estado 'mensagem' inicializado com "Bem-vindo ao app!"
+  // 'setMensagem' é a função usada para atualizar este estado
+  const [mensagem, setMensagem] = useState('Bem-vindo ao app!');
+
+  // Função chamada ao pressionar o botão, altera o estado da mensagem
+  const entrar = () => {
+    setMensagem('Bem-vindo aluno!'); // Atualiza o estado da mensagem
+  };
+
+  // Renderiza a interface do usuário
+  return (
+    // View container principal, serve como um contêiner flexbox
+    <View style={styles.container}>
+      {/* Componente de texto que exibe o conteúdo da variável 'mensagem' */}
+      <Text style={styles.welcomeText}>
+        {mensagem}
+      </Text>
+      {/* Componente de botão, executa a função 'entrar' ao ser pressionado */}
+      <Button 
+        title="Entrar" 
+        onPress={entrar} 
+      />
+    </View>
+  );
+}
+
+// Criação do objeto de estilos usando StyleSheet para melhor performance
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, // Faz a View ocupar toda a tela
+    backgroundColor: '#2ADEB0', // Define a cor de fundo (verde-água)
+    alignItems: 'center', // Centraliza os itens horizontalmente
+    justifyContent: 'center', // Centraliza os itens verticalmente
+  },
+  welcomeText: {
+    fontSize: 24, // Define o tamanho da fonte
+    marginBottom: 20, // Cria um espaço abaixo do texto
+    fontWeight: 'bold', // Deixa o texto em negrito
+    color: '#FFFFFF' // Define a cor do texto para branco
+  },
+});
