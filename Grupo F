@@ -1,5 +1,6 @@
 \\Alunas Isabelle Duarte, Amanda Medeiros e Rakely de Souza
 Atividade 1° bimestre
+teste-ranyere
 
 import React, { useState } from &#39;react&#39;;
 import {
