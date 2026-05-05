@@ -1,5 +1,5 @@
 //Grupo B: Bruno, julio, Yuri e Cauã
-//1/ Bimestre
+//1° Bimestre Trabalho
 import React, { useState } from &#39;react&#39;;
 import {
   View,
@@ -123,3 +123,6 @@ const styles = StyleSheet.create({
     textAlign: &#39;center&#39;
   }
 });
+
+//2° Bimestre
+//
