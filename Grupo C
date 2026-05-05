@@ -1,5 +1,6 @@
 // Grupo C: Alunos: Jasmin,Luana, Laura e Walter
 
+// Descrição: Esse código representa um aplicativo móvel básico desenvolvido com React Native. Ele é um excelente exemplo de um projeto inicial para estudantes de informática, pois cobre os conceitos fundamentais de desenvolvimento mobile. Estrutura Técnica:Componentes: Uso de View, Text, TextInput e Button.Estilização: Utiliza o StyleSheet para criar um design limpo, com cores suaves (azul acinzentado e branco) e bordas arredondadas nos elementos.
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, Platform } from 'react-native';
 
