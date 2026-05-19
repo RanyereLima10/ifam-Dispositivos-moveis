@@ -124,3 +124,1011 @@ const styles = StyleSheet.create({
   },
 
 });
+
+
+////////////////////////////////////////////////////////////////////////////
+
+Trabalhando com Switch
+////////////////////////////////////////////////////////////////////////////
+
+// Importa o React e o Hook useState
+// useState é usado para armazenar valores que podem mudar
+import React, { useState } from 'react';
+
+// Importa os componentes View, Text e Switch do React Native
+import {
+  View,    // Container para organizar elementos
+  Text,    // Exibe textos na tela
+  Switch   // Componente de botão liga/desliga
+} from 'react-native';
+
+// Cria e exporta o componente principal App
+export default function App() {
+
+  // Cria a variável "ativo"
+  // setAtivo altera o valor da variável
+  // false significa que o switch inicia desligado
+  const [ativo, setAtivo] = useState(false);
+
+  // Retorno da interface gráfica
+  return (
+
+    // View principal da aplicação
+    <View style={{ marginTop: 50, padding: 20 }}>
+
+      {/* Texto exibido acima do Switch */}
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>
+        Receber notificações
+      </Text>
+
+      {/* Componente Switch */}
+      <Switch
+
+        // Define o valor atual do Switch
+        // true = ligado
+        // false = desligado
+        value={ativo}
+
+        // Função chamada quando o usuário altera o Switch
+        // Atualiza o valor da variável "ativo"
+        onValueChange={setAtivo}
+      />
+
+      {/* Mostra o estado atual do Switch */}
+      <Text style={{ marginTop: 10, fontSize: 18 }}>
+
+        {/* Operador ternário */}
+        {/* Se ativo for true mostra "Ativado" */}
+        {/* Senão mostra "Desativado" */}
+        Status: {ativo ? 'Ativado' : 'Desativado'}
+
+      </Text>
+
+    </View>
+  );
+}
+
+
+//////////////////////////////////////////////////////////////////////
+
+Cadastro de Usuário
+/////////////////////////////////////////////////////////////////////
+
+
+// Importa o React e o Hook useState
+// useState é utilizado para armazenar valores que podem mudar
+import React, { useState } from 'react';
+
+// Importa os componentes necessários do React Native
+import {
+  View,        // Container para organizar elementos
+  Text,        // Exibe textos na tela
+  TextInput,   // Campo de entrada de texto
+  Button,      // Botão padrão
+  Switch,      // Botão de ligar/desligar
+  StyleSheet,  // Criação de estilos
+  Alert        // Exibe mensagens de alerta
+} from 'react-native';
+
+// Cria e exporta o componente principal App
+export default function App() {
+
+  // Cria a variável "nome"
+  // setNome altera o valor digitado
+  const [nome, setNome] = useState('');
+
+  // Cria a variável "email"
+  // setEmail altera o valor digitado
+  const [email, setEmail] = useState('');
+
+  // Cria a variável "notificacao"
+  // false significa desligado inicialmente
+  const [notificacao, setNotificacao] = useState(false);
+
+  // Função executada ao clicar no botão
+  function cadastrar() {
+
+    // Exibe uma mensagem de alerta com os dados
+    Alert.alert(
+
+      // Título do alerta
+      'Cadastro realizado',
+
+      // Mensagem exibida
+      'Nome: ' + nome +
+      '\nEmail: ' + email +
+      '\nNotificações: ' + notificacao
+    );
+  }
+
+  // Retorna a interface gráfica
+  return (
+
+    // Container principal da aplicação
+    <View style={styles.container}>
+
+      {/* Título da tela */}
+      <Text style={styles.titulo}>
+        Cadastro de Usuário
+      </Text>
+
+      {/* Campo para digitar o nome */}
+      <TextInput
+
+        // Aplica o estilo do input
+        style={styles.input}
+
+        // Texto exibido dentro do campo
+        placeholder="Digite o nome"
+
+        // Atualiza o valor da variável nome
+        onChangeText={setNome}
+      />
+
+      {/* Campo para digitar o email */}
+      <TextInput
+
+        // Aplica o estilo do input
+        style={styles.input}
+
+        // Texto exibido dentro do campo
+        placeholder="Digite o email"
+
+        // Atualiza o valor da variável email
+        onChangeText={setEmail}
+      />
+
+      {/* Container do Switch */}
+      <View style={styles.switchContainer}>
+
+        {/* Texto ao lado do Switch */}
+        <Text>
+          Receber notificações
+        </Text>
+
+        {/* Componente Switch */}
+        <Switch
+
+          // Valor atual do Switch
+          value={notificacao}
+
+          // Atualiza o valor da variável notificacao
+          onValueChange={setNotificacao}
+        />
+
+      </View>
+
+      {/* Botão para cadastrar */}
+      <Button
+
+        // Texto exibido no botão
+        title="Cadastrar"
+
+        // Função executada ao clicar
+        onPress={cadastrar}
+      />
+
+    </View>
+  );
+}
+
+// Criação dos estilos da aplicação
+const styles = StyleSheet.create({
+
+  // Estilo do container principal
+  container: {
+
+    // Faz ocupar toda a tela
+    flex: 1,
+
+    // Espaçamento interno
+    padding: 20,
+
+    // Centraliza verticalmente
+    justifyContent: 'center',
+  },
+
+  // Estilo do título
+  titulo: {
+
+    // Tamanho da fonte
+    fontSize: 28,
+
+    // Texto em negrito
+    fontWeight: 'bold',
+
+    // Espaço abaixo do título
+    marginBottom: 20,
+
+    // Centraliza o texto
+    textAlign: 'center',
+  },
+
+  // Estilo dos campos de texto
+  input: {
+
+    // Espessura da borda
+    borderWidth: 1,
+
+    // Cor da borda
+    borderColor: '#999',
+
+    // Bordas arredondadas
+    borderRadius: 10,
+
+    // Espaçamento interno
+    padding: 10,
+
+    // Espaço abaixo do input
+    marginBottom: 15,
+  },
+
+  // Estilo do container do Switch
+  switchContainer: {
+
+    // Organiza os itens em linha
+    flexDirection: 'row',
+
+    // Espaço entre os itens
+    justifyContent: 'space-between',
+
+    // Alinha verticalmente
+    alignItems: 'center',
+
+    // Espaço abaixo
+    marginBottom: 20,
+  },
+
+});
+
+/////////////////////////////
+Projeto 01
+//// ////////////////////////
+
+// ============================================================================
+// APP DE CADASTRO DE PRODUTOS - REACT NATIVE
+// Desenvolvido para o IFAM - Campus Iranduba
+// Autor: Ranyere Ney Osório Lima
+// Descrição: Aplicação completa para cadastrar, listar, editar e deletar produtos
+// ============================================================================
+
+// IMPORTAÇÕES - Importamos os componentes necessários do React e React Native
+import React, { useState } from 'react'; // useState para gerenciar estado da aplicação
+import {
+  View, // Componente container para organizar elementos
+  Text, // Componente para exibir texto
+  TextInput, // Componente para entrada de texto do usuário
+  Button, // Componente para botões
+  ScrollView, // Componente para fazer scroll em conteúdo grande
+  Alert, // Componente para exibir alertas
+  StyleSheet, // Para criar estilos CSS-like em React Native
+  FlatList, // Componente otimizado para listas grandes
+  TouchableOpacity, // Componente para detectar toque
+} from 'react-native';
+
+// ============================================================================
+// COMPONENTE PRINCIPAL - App
+// Este é o componente raiz que gerencia toda a aplicação
+// ============================================================================
+export default function App() {
+  // ========================================================================
+  // ESTADOS DA APLICAÇÃO - Usando o hook useState para gerenciar dados
+  // ========================================================================
+
+  // Estado para armazenar a lista de produtos cadastrados
+  // Inicializa com um array vazio
+  const [produtos, setProdutos] = useState([]);
+
+  // Estado para controlar qual tela está sendo exibida
+  // Pode ser: 'lista', 'cadastro' ou 'edicao'
+  const [telaAtual, setTelaAtual] = useState('lista');
+
+  // Estado para armazenar o produto sendo editado
+  // Inicializa como null (nenhum produto em edição)
+  const [produtoEmEdicao, setProdutoEmEdicao] = useState(null);
+
+  // ========================================================================
+  // CAMPOS DO FORMULÁRIO - Estados para cada campo de entrada
+  // ========================================================================
+
+  // Estado para armazenar o nome do produto digitado no formulário
+  const [nome, setNome] = useState('');
+
+  // Estado para armazenar o preço do produto digitado no formulário
+  const [preco, setPreco] = useState('');
+
+  // Estado para armazenar a categoria selecionada do produto
+  const [categoria, setCategoria] = useState('Eletrônicos');
+
+  // Estado para armazenar a descrição do produto digitada no formulário
+  const [descricao, setDescricao] = useState('');
+
+  // ========================================================================
+  // FUNÇÃO: Validar Formulário
+  // Verifica se todos os campos estão preenchidos corretamente
+  // Retorna true se válido, false se houver erro
+  // ========================================================================
+  const validarFormulario = () => {
+    // Verifica se o nome está vazio ou tem menos de 3 caracteres
+    if (!nome || nome.trim().length < 3) {
+      // Exibe alerta de erro ao usuário
+      Alert.alert(
+        'Erro de Validação', // Título do alerta
+        'Nome deve ter no mínimo 3 caracteres' // Mensagem do alerta
+      );
+      return false; // Retorna false indicando validação falhou
+    }
+
+    // Verifica se o preço está vazio, não é número ou é menor/igual a 0
+    if (!preco || isNaN(preco) || parseFloat(preco) <= 0) {
+      // Exibe alerta de erro ao usuário
+      Alert.alert(
+        'Erro de Validação',
+        'Preço deve ser um número válido e maior que 0'
+      );
+      return false; // Retorna false indicando validação falhou
+    }
+
+    // Verifica se a categoria está vazia
+    if (!categoria) {
+      // Exibe alerta de erro ao usuário
+      Alert.alert(
+        'Erro de Validação',
+        'Selecione uma categoria'
+      );
+      return false; // Retorna false indicando validação falhou
+    }
+
+    // Se passou em todas as validações, retorna true
+    return true;
+  };
+
+  // ========================================================================
+  // FUNÇÃO: Cadastrar Produto
+  // Adiciona um novo produto à lista após validação
+  // ========================================================================
+  const handleCadastrar = () => {
+    // Chama a função de validação
+    if (validarFormulario()) {
+      // Cria um novo objeto de produto com os dados do formulário
+      const novoProduto = {
+        id: Date.now(), // Usa timestamp como ID único do produto
+        nome: nome.trim(), // Remove espaços em branco do nome
+        preco: parseFloat(preco), // Converte preço para número decimal
+        categoria: categoria, // Armazena a categoria selecionada
+        descricao: descricao.trim(), // Remove espaços em branco da descrição
+      };
+
+      // Adiciona o novo produto ao array de produtos
+      // Usa spread operator para criar novo array (imutabilidade)
+      setProdutos([...produtos, novoProduto]);
+
+      // Limpa todos os campos do formulário
+      limparCampos();
+
+      // Exibe mensagem de sucesso ao usuário
+      Alert.alert(
+        'Sucesso',
+        'Produto cadastrado com sucesso!'
+      );
+
+      // Volta para a tela de listagem
+      setTelaAtual('lista');
+    }
+  };
+
+  // ========================================================================
+  // FUNÇÃO: Atualizar Produto
+  // Atualiza os dados de um produto existente
+  // ========================================================================
+  const handleAtualizar = () => {
+    // Chama a função de validação
+    if (validarFormulario()) {
+      // Cria um novo array de produtos
+      const produtosAtualizados = produtos.map((produto) => {
+        // Se o ID do produto corresponder ao produto em edição
+        if (produto.id === produtoEmEdicao.id) {
+          // Retorna o produto com dados atualizados
+          return {
+            id: produto.id, // Mantém o ID original
+            nome: nome.trim(), // Atualiza o nome
+            preco: parseFloat(preco), // Atualiza o preço
+            categoria: categoria, // Atualiza a categoria
+            descricao: descricao.trim(), // Atualiza a descrição
+          };
+        }
+        // Se não for o produto em edição, retorna sem mudanças
+        return produto;
+      });
+
+      // Atualiza o estado com a lista de produtos modificada
+      setProdutos(produtosAtualizados);
+
+      // Limpa os campos do formulário
+      limparCampos();
+
+      // Limpa o estado de produto em edição
+      setProdutoEmEdicao(null);
+
+      // Exibe mensagem de sucesso ao usuário
+      Alert.alert(
+        'Sucesso',
+        'Produto atualizado com sucesso!'
+      );
+
+      // Volta para a tela de listagem
+      setTelaAtual('lista');
+    }
+  };
+
+  // ========================================================================
+  // FUNÇÃO: Deletar Produto
+  // Remove um produto da lista após confirmação do usuário
+  // ========================================================================
+  const handleDeletar = (id) => {
+    // Exibe um alerta de confirmação antes de deletar
+    Alert.alert(
+      'Confirmar Exclusão', // Título do alerta
+      'Tem certeza que deseja deletar este produto?', // Mensagem
+      [
+        // Array de botões do alerta
+        {
+          text: 'Cancelar', // Texto do botão
+          onPress: () => {}, // Função executada ao clicar (não faz nada)
+          style: 'cancel', // Estilo do botão (cancelamento)
+        },
+        {
+          text: 'Deletar', // Texto do botão
+          onPress: () => {
+            // Filtra o array removendo o produto com o ID correspondente
+            const produtosFiltrados = produtos.filter(
+              (produto) => produto.id !== id // Mantém apenas produtos com ID diferente
+            );
+
+            // Atualiza o estado com a lista filtrada
+            setProdutos(produtosFiltrados);
+
+            // Exibe mensagem de sucesso
+            Alert.alert(
+              'Sucesso',
+              'Produto deletado com sucesso!'
+            );
+          },
+          style: 'destructive', // Estilo do botão (destruição/exclusão)
+        },
+      ]
+    );
+  };
+
+  // ========================================================================
+  // FUNÇÃO: Iniciar Edição
+  // Prepara o formulário para editar um produto existente
+  // ========================================================================
+  const handleEditarInicio = (produto) => {
+    // Armazena o produto que será editado
+    setProdutoEmEdicao(produto);
+
+    // Preenche os campos do formulário com os dados do produto
+    setNome(produto.nome); // Preenche o nome
+    setPreco(produto.preco.toString()); // Converte preço para string e preenche
+    setCategoria(produto.categoria); // Preenche a categoria
+    setDescricao(produto.descricao); // Preenche a descrição
+
+    // Muda para a tela de edição
+    setTelaAtual('edicao');
+  };
+
+  // ========================================================================
+  // FUNÇÃO: Limpar Campos
+  // Reseta todos os campos do formulário para valores vazios
+  // ========================================================================
+  const limparCampos = () => {
+    // Reseta o nome para string vazia
+    setNome('');
+
+    // Reseta o preço para string vazia
+    setPreco('');
+
+    // Reseta a categoria para valor padrão
+    setCategoria('Eletrônicos');
+
+    // Reseta a descrição para string vazia
+    setDescricao('');
+  };
+
+  // ========================================================================
+  // FUNÇÃO: Cancelar Edição
+  // Cancela a edição e volta para a tela de listagem
+  // ========================================================================
+  const handleCancelarEdicao = () => {
+    // Limpa os campos do formulário
+    limparCampos();
+
+    // Limpa o estado de produto em edição
+    setProdutoEmEdicao(null);
+
+    // Volta para a tela de listagem
+    setTelaAtual('lista');
+  };
+
+  // ========================================================================
+  // RENDERIZAÇÃO CONDICIONAL - Exibe diferentes telas conforme o estado
+  // ========================================================================
+
+  // Se a tela atual for 'lista', renderiza a tela de listagem
+  if (telaAtual === 'lista') {
+    return (
+      <View style={styles.container}>
+        {/* HEADER - Cabeçalho da aplicação */}
+        <View style={styles.header}>
+          {/* Título da aplicação */}
+          <Text style={styles.headerTitle}>Cadastro de Produtos</Text>
+
+          {/* Botão para ir para tela de cadastro */}
+          <Button
+            title="Novo Produto" // Texto do botão
+            onPress={() => {
+              // Limpa os campos antes de ir para cadastro
+              limparCampos();
+              // Muda para a tela de cadastro
+              setTelaAtual('cadastro');
+            }}
+            color="#059669" // Cor verde do botão
+          />
+        </View>
+
+        {/* LISTA DE PRODUTOS */}
+        <ScrollView style={styles.listaContainer}>
+          {/* Verifica se há produtos cadastrados */}
+          {produtos.length === 0 ? (
+            // Se não há produtos, exibe mensagem vazia
+            <View style={styles.emptyState}>
+              <Text style={styles.emptyStateText}>
+                Nenhum produto cadastrado. Clique em "Novo Produto" para começar!
+              </Text>
+            </View>
+          ) : (
+            // Se há produtos, renderiza cada um
+            produtos.map((produto) => (
+              // Container de cada produto (cartão)
+              <View key={produto.id} style={styles.produtoCard}>
+                {/* Nome do produto */}
+                <Text style={styles.produtoNome}>{produto.nome}</Text>
+
+                {/* Preço do produto formatado em moeda */}
+                <Text style={styles.produtoPreco}>
+                  R$ {produto.preco.toFixed(2)}
+                </Text>
+
+                {/* Categoria do produto */}
+                <Text style={styles.produtoCategoria}>
+                  Categoria: {produto.categoria}
+                </Text>
+
+                {/* Descrição do produto */}
+                <Text style={styles.produtoDescricao}>
+                  {produto.descricao}
+                </Text>
+
+                {/* Container dos botões de ação */}
+                <View style={styles.botoesContainer}>
+                  {/* Botão para editar o produto */}
+                  <TouchableOpacity
+                    style={[styles.botao, styles.botaoEditar]}
+                    onPress={() => handleEditarInicio(produto)}
+                  >
+                    <Text style={styles.textoBotao}>Editar</Text>
+                  </TouchableOpacity>
+
+                  {/* Botão para deletar o produto */}
+                  <TouchableOpacity
+                    style={[styles.botao, styles.botaoDeletar]}
+                    onPress={() => handleDeletar(produto.id)}
+                  >
+                    <Text style={styles.textoBotao}>Deletar</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            ))
+          )}
+        </ScrollView>
+      </View>
+    );
+  }
+
+  // Se a tela atual for 'cadastro', renderiza a tela de cadastro
+  if (telaAtual === 'cadastro') {
+    return (
+      <View style={styles.container}>
+        {/* HEADER - Cabeçalho da tela de cadastro */}
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>Novo Produto</Text>
+        </View>
+
+        {/* FORMULÁRIO */}
+        <ScrollView style={styles.formularioContainer}>
+          {/* CAMPO: Nome do Produto */}
+          <Text style={styles.label}>Nome do Produto *</Text>
+          <TextInput
+            style={styles.input} // Estilo do campo de entrada
+            placeholder="Digite o nome do produto" // Texto de placeholder
+            value={nome} // Valor atual do campo
+            onChangeText={setNome} // Função chamada quando o texto muda
+            placeholderTextColor="#999" // Cor do placeholder
+          />
+
+          {/* CAMPO: Preço */}
+          <Text style={styles.label}>Preço *</Text>
+          <TextInput
+            style={styles.input} // Estilo do campo de entrada
+            placeholder="Digite o preço (ex: 99.90)" // Texto de placeholder
+            value={preco} // Valor atual do campo
+            onChangeText={setPreco} // Função chamada quando o texto muda
+            keyboardType="decimal-pad" // Teclado numérico com ponto decimal
+            placeholderTextColor="#999" // Cor do placeholder
+          />
+
+          {/* CAMPO: Categoria */}
+          <Text style={styles.label}>Categoria *</Text>
+          <View style={styles.categoriaContainer}>
+            {/* Array de categorias disponíveis */}
+            {['Eletrônicos', 'Roupas', 'Alimentos', 'Outros'].map(
+              (cat) => (
+                // Botão para cada categoria
+                <TouchableOpacity
+                  key={cat} // Chave única para cada elemento
+                  style={[
+                    styles.categoriaBotao, // Estilo base
+                    categoria === cat && styles.categoriaSelecionada, // Estilo se selecionada
+                  ]}
+                  onPress={() => setCategoria(cat)} // Define categoria ao clicar
+                >
+                  <Text
+                    style={[
+                      styles.categoriaBotaoTexto,
+                      categoria === cat && styles.categoriaSelecionadaTexto,
+                    ]}
+                  >
+                    {cat}
+                  </Text>
+                </TouchableOpacity>
+              )
+            )}
+          </View>
+
+          {/* CAMPO: Descrição */}
+          <Text style={styles.label}>Descrição</Text>
+          <TextInput
+            style={[styles.input, styles.descricaoInput]} // Estilo com altura maior
+            placeholder="Digite a descrição do produto" // Texto de placeholder
+            value={descricao} // Valor atual do campo
+            onChangeText={setDescricao} // Função chamada quando o texto muda
+            multiline // Permite múltiplas linhas
+            numberOfLines={4} // Número inicial de linhas
+            placeholderTextColor="#999" // Cor do placeholder
+          />
+
+          {/* BOTÕES DE AÇÃO */}
+          <View style={styles.botaoContainer}>
+            {/* Botão Cadastrar */}
+            <Button
+              title="Cadastrar" // Texto do botão
+              onPress={handleCadastrar} // Função chamada ao clicar
+              color="#1E40AF" // Cor azul do botão
+            />
+
+            {/* Botão Limpar */}
+            <Button
+              title="Limpar" // Texto do botão
+              onPress={limparCampos} // Função chamada ao clicar
+              color="#FF6B6B" // Cor vermelha do botão
+            />
+
+            {/* Botão Voltar */}
+            <Button
+              title="Voltar" // Texto do botão
+              onPress={() => {
+                // Limpa campos antes de voltar
+                limparCampos();
+                // Volta para a tela de listagem
+                setTelaAtual('lista');
+              }}
+              color="#999" // Cor cinza do botão
+            />
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
+
+  // Se a tela atual for 'edicao', renderiza a tela de edição
+  if (telaAtual === 'edicao') {
+    return (
+      <View style={styles.container}>
+        {/* HEADER - Cabeçalho da tela de edição */}
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>Editar Produto</Text>
+        </View>
+
+        {/* FORMULÁRIO - Mesmo formulário do cadastro, mas para edição */}
+        <ScrollView style={styles.formularioContainer}>
+          {/* CAMPO: Nome do Produto */}
+          <Text style={styles.label}>Nome do Produto *</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o nome do produto"
+            value={nome}
+            onChangeText={setNome}
+            placeholderTextColor="#999"
+          />
+
+          {/* CAMPO: Preço */}
+          <Text style={styles.label}>Preço *</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o preço (ex: 99.90)"
+            value={preco}
+            onChangeText={setPreco}
+            keyboardType="decimal-pad"
+            placeholderTextColor="#999"
+          />
+
+          {/* CAMPO: Categoria */}
+          <Text style={styles.label}>Categoria *</Text>
+          <View style={styles.categoriaContainer}>
+            {['Eletrônicos', 'Roupas', 'Alimentos', 'Outros'].map(
+              (cat) => (
+                <TouchableOpacity
+                  key={cat}
+                  style={[
+                    styles.categoriaBotao,
+                    categoria === cat && styles.categoriaSelecionada,
+                  ]}
+                  onPress={() => setCategoria(cat)}
+                >
+                  <Text
+                    style={[
+                      styles.categoriaBotaoTexto,
+                      categoria === cat && styles.categoriaSelecionadaTexto,
+                    ]}
+                  >
+                    {cat}
+                  </Text>
+                </TouchableOpacity>
+              )
+            )}
+          </View>
+
+          {/* CAMPO: Descrição */}
+          <Text style={styles.label}>Descrição</Text>
+          <TextInput
+            style={[styles.input, styles.descricaoInput]}
+            placeholder="Digite a descrição do produto"
+            value={descricao}
+            onChangeText={setDescricao}
+            multiline
+            numberOfLines={4}
+            placeholderTextColor="#999"
+          />
+
+          {/* BOTÕES DE AÇÃO */}
+          <View style={styles.botaoContainer}>
+            {/* Botão Atualizar */}
+            <Button
+              title="Atualizar" // Texto do botão
+              onPress={handleAtualizar} // Função chamada ao clicar
+              color="#1E40AF" // Cor azul do botão
+            />
+
+            {/* Botão Cancelar */}
+            <Button
+              title="Cancelar" // Texto do botão
+              onPress={handleCancelarEdicao} // Função chamada ao clicar
+              color="#999" // Cor cinza do botão
+            />
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
+}
+
+// ============================================================================
+// ESTILOS - Definição de todos os estilos da aplicação
+// ============================================================================
+const styles = StyleSheet.create({
+  // Container principal da aplicação
+  container: {
+    flex: 1, // Ocupa todo o espaço disponível
+    backgroundColor: '#FFFFFF', // Fundo branco
+  },
+
+  // Header (cabeçalho) da aplicação
+  header: {
+    backgroundColor: '#1E40AF', // Fundo azul
+    padding: 20, // Espaçamento interno
+    paddingTop: 40, // Espaçamento superior maior
+    justifyContent: 'space-between', // Distribui espaço entre elementos
+    alignItems: 'center', // Centraliza verticalmente
+  },
+
+  // Título do header
+  headerTitle: {
+    fontSize: 24, // Tamanho da fonte
+    fontWeight: 'bold', // Texto em negrito
+    color: '#FFFFFF', // Cor branca
+    marginBottom: 15, // Espaçamento inferior
+  },
+
+  // Container da lista de produtos
+  listaContainer: {
+    flex: 1, // Ocupa espaço restante
+    padding: 15, // Espaçamento interno
+  },
+
+  // Estado vazio (quando não há produtos)
+  emptyState: {
+    flex: 1, // Ocupa todo o espaço
+    justifyContent: 'center', // Centraliza verticalmente
+    alignItems: 'center', // Centraliza horizontalmente
+    paddingVertical: 50, // Espaçamento vertical
+  },
+
+  // Texto do estado vazio
+  emptyStateText: {
+    fontSize: 16, // Tamanho da fonte
+    color: '#999', // Cor cinza
+    textAlign: 'center', // Texto centralizado
+  },
+
+  // Cartão de produto
+  produtoCard: {
+    backgroundColor: '#F9FAFB', // Fundo cinza claro
+    borderLeftWidth: 5, // Borda esquerda
+    borderLeftColor: '#1E40AF', // Cor da borda azul
+    padding: 15, // Espaçamento interno
+    marginBottom: 12, // Espaçamento inferior
+    borderRadius: 8, // Cantos arredondados
+  },
+
+  // Nome do produto
+  produtoNome: {
+    fontSize: 18, // Tamanho da fonte
+    fontWeight: 'bold', // Texto em negrito
+    color: '#1E40AF', // Cor azul
+    marginBottom: 8, // Espaçamento inferior
+  },
+
+  // Preço do produto
+  produtoPreco: {
+    fontSize: 16, // Tamanho da fonte
+    fontWeight: 'bold', // Texto em negrito
+    color: '#059669', // Cor verde
+    marginBottom: 4, // Espaçamento inferior
+  },
+
+  // Categoria do produto
+  produtoCategoria: {
+    fontSize: 14, // Tamanho da fonte
+    color: '#666', // Cor cinza escuro
+    marginBottom: 4, // Espaçamento inferior
+  },
+
+  // Descrição do produto
+  produtoDescricao: {
+    fontSize: 14, // Tamanho da fonte
+    color: '#999', // Cor cinza
+    marginBottom: 12, // Espaçamento inferior
+  },
+
+  // Container dos botões de ação
+  botoesContainer: {
+    flexDirection: 'row', // Elementos em linha
+    justifyContent: 'space-between', // Distribui espaço entre botões
+    gap: 10, // Espaçamento entre botões
+  },
+
+  // Botão genérico
+  botao: {
+    flex: 1, // Ocupa espaço igual
+    paddingVertical: 10, // Espaçamento vertical
+    paddingHorizontal: 15, // Espaçamento horizontal
+    borderRadius: 6, // Cantos arredondados
+    justifyContent: 'center', // Centraliza conteúdo
+    alignItems: 'center', // Centraliza horizontalmente
+  },
+
+  // Botão de edição
+  botaoEditar: {
+    backgroundColor: '#1E40AF', // Fundo azul
+  },
+
+  // Botão de deletar
+  botaoDeletar: {
+    backgroundColor: '#FF6B6B', // Fundo vermelho
+  },
+
+  // Texto dos botões
+  textoBotao: {
+    color: '#FFFFFF', // Cor branca
+    fontWeight: 'bold', // Texto em negrito
+    fontSize: 14, // Tamanho da fonte
+  },
+
+  // Container do formulário
+  formularioContainer: {
+    flex: 1, // Ocupa espaço restante
+    padding: 20, // Espaçamento interno
+  },
+
+  // Label (rótulo) dos campos
+  label: {
+    fontSize: 16, // Tamanho da fonte
+    fontWeight: 'bold', // Texto em negrito
+    color: '#1E40AF', // Cor azul
+    marginBottom: 8, // Espaçamento inferior
+  },
+
+  // Campo de entrada de texto
+  input: {
+    borderWidth: 1, // Largura da borda
+    borderColor: '#DDD', // Cor da borda cinza claro
+    padding: 12, // Espaçamento interno
+    marginBottom: 15, // Espaçamento inferior
+    borderRadius: 8, // Cantos arredondados
+    fontSize: 16, // Tamanho da fonte
+    color: '#333', // Cor do texto
+  },
+
+  // Campo de descrição (maior)
+  descricaoInput: {
+    height: 100, // Altura fixa
+    textAlignVertical: 'top', // Alinha texto no topo
+  },
+
+  // Container de categorias
+  categoriaContainer: {
+    flexDirection: 'row', // Elementos em linha
+    justifyContent: 'space-between', // Distribui espaço
+    marginBottom: 15, // Espaçamento inferior
+    gap: 8, // Espaçamento entre botões
+  },
+
+  // Botão de categoria
+  categoriaBotao: {
+    flex: 1, // Ocupa espaço igual
+    paddingVertical: 10, // Espaçamento vertical
+    paddingHorizontal: 8, // Espaçamento horizontal
+    borderWidth: 1, // Largura da borda
+    borderColor: '#DDD', // Cor da borda cinza
+    borderRadius: 6, // Cantos arredondados
+    justifyContent: 'center', // Centraliza conteúdo
+    alignItems: 'center', // Centraliza horizontalmente
+  },
+
+  // Botão de categoria selecionada
+  categoriaSelecionada: {
+    backgroundColor: '#1E40AF', // Fundo azul
+    borderColor: '#1E40AF', // Borda azul
+  },
+
+  // Texto do botão de categoria
+  categoriaBotaoTexto: {
+    fontSize: 12, // Tamanho da fonte
+    color: '#666', // Cor cinza
+    fontWeight: '600', // Texto semi-negrito
+  },
+
+  // Texto do botão de categoria selecionada
+  categoriaSelecionadaTexto: {
+    color: '#FFFFFF', // Cor branca
+  },
+
+  // Container dos botões de ação do formulário
+  botaoContainer: {
+    marginTop: 20, // Espaçamento superior
+    gap: 10, // Espaçamento entre botões
+  },
+});
+
+
