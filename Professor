@@ -1,1 +1,126 @@
 
+// EXEMPLO : FORMULARIO SIMPLES
+// useState é utilizado para armazenar valores que podem mudar
+import React, { useState } from 'react';
+
+// Importa os componentes necessários do React Native
+import {
+  View,          // Container para organizar elementos
+  Text,          // Exibe textos na tela
+  TextInput,     // Campo de entrada de texto
+  Button,        // Botão padrão
+  StyleSheet,    // Cria estilos da aplicação
+  Alert          // Exibe mensagens de alerta
+} from 'react-native';
+
+// Cria e exporta o componente principal App
+export default function App() {
+
+  // Cria uma variável chamada "nome"
+  // setNome altera o valor da variável
+  // useState('') inicia a variável vazia
+  const [nome, setNome] = useState('');
+
+  // Função executada quando o botão for clicado
+  function enviarFormulario() {
+
+    // Exibe uma caixa de alerta
+    // Primeiro texto = título
+    // Segundo texto = mensagem
+    Alert.alert(
+      'Dados enviados',
+      'Nome: ' + nome
+    );
+  }
+
+  // Retorna a interface gráfica da aplicação
+  return (
+
+    // View principal da aplicação
+    <View style={styles.container}>
+
+      {/* Texto do título */}
+      <Text style={styles.titulo}>
+        Formulário
+      </Text>
+
+      {/* Campo de entrada de texto */}
+      <TextInput
+
+        // Aplica o estilo do input
+        style={styles.input}
+
+        // Texto exibido dentro do campo
+        placeholder="Digite seu nome"
+
+        // Captura o texto digitado
+        // e salva na variável nome
+        onChangeText={setNome}
+      />
+
+      {/* Botão da aplicação */}
+      <Button
+
+        // Texto exibido no botão
+        title="Enviar"
+
+        // Função executada ao clicar
+        onPress={enviarFormulario}
+      />
+
+    </View>
+  );
+}
+
+// Criação dos estilos da aplicação
+const styles = StyleSheet.create({
+
+  // Estilo do container principal
+  container: {
+
+    // Faz ocupar toda a tela
+    flex: 1,
+
+    // Centraliza os elementos verticalmente
+    justifyContent: 'center',
+
+    // Adiciona espaçamento interno
+    padding: 20,
+  },
+
+  // Estilo do título
+  titulo: {
+
+    // Tamanho da fonte
+    fontSize: 28,
+
+    // Texto em negrito
+    fontWeight: 'bold',
+
+    // Espaço abaixo do título
+    marginBottom: 20,
+
+    // Centraliza o texto
+    textAlign: 'center',
+  },
+
+  // Estilo do campo de texto
+  input: {
+
+    // Espessura da borda
+    borderWidth: 1,
+
+    // Cor da borda
+    borderColor: '#999',
+
+    // Bordas arredondadas
+    borderRadius: 10,
+
+    // Espaçamento interno
+    padding: 10,
+
+    // Espaço abaixo do input
+    marginBottom: 20,
+  },
+
+});
